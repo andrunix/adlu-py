@@ -1,0 +1,23 @@
+
+
+Steps for using this program
+
+
+1) Get the list of users from AppWatch in a simple format, one user id per line. The text file we started with included user id\tuser name
+
+2) Run the ampldap.py program to lookup the users in AD, get the manager, and produce the output file
+
+   ampldap.py <infile name> <passwd>
+   
+   Output goes to STDOUT so simply redirect to a file 
+
+# 3) Remove the header line from the output 
+
+# 4) Sort the output on the 3rd column. 
+#   sort -t$'\t' -k4 userout.txt >userouts.txt
+
+#5) Open the output file and remove the lines at the top that only have a user id. These id's could not be located in Active Directory.
+
+# 6) Run the program to read the sorted program and send emails
+#   userproc.py
+
